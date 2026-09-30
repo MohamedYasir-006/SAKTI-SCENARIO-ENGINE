@@ -1,5 +1,106 @@
 {
   "label": "Prototype / illustrative evidence — not verified",
-  "notice": "No official patent numbers, application numbers, or government citations are asserted here. Real evidence integrations arrive in Phase 2.",
-  "items": []
+  "notice": "Sample prototype data only. No real patent numbers, TKDL IDs, application numbers, or government citations are asserted anywhere in this file.",
+  "items": [
+    {
+      "id": "S-PA-01",
+      "title": "Illustrative disclosure: ashwagandha root decoction process",
+      "type": "prior_art",
+      "jurisdiction": "IN",
+      "relatedIngredients": ["ashwagandha"],
+      "relatedProcess": ["Decoction (hot-water extraction)"],
+      "summary": "Sample note describing a hot-water decoction of ashwagandha root. Illustrative only; no patent number asserted.",
+      "label": "Prototype / illustrative evidence"
+    },
+    {
+      "id": "S-PA-02",
+      "title": "Illustrative disclosure: ashwagandha-brahmi polyherbal blend",
+      "type": "prior_art",
+      "jurisdiction": "IN",
+      "relatedIngredients": ["ashwagandha", "brahmi"],
+      "relatedProcess": ["Cold maceration"],
+      "summary": "Sample note describing a two-herb ashwagandha and brahmi blend prepared by cold maceration. Illustrative only.",
+      "label": "Prototype / illustrative evidence"
+    },
+    {
+      "id": "S-PA-03",
+      "title": "Illustrative disclosure: low-temperature drying of herbal powders",
+      "type": "prior_art",
+      "jurisdiction": "WO",
+      "relatedIngredients": [],
+      "relatedProcess": ["Low-temperature vacuum drying"],
+      "summary": "Sample note describing gentle low-temperature drying of powdered herbs. Illustrative only; no filing reference asserted.",
+      "label": "Prototype / illustrative evidence"
+    },
+    {
+      "id": "S-TK-01",
+      "title": "Illustrative traditional use note: ashwagandha root",
+      "type": "traditional_knowledge",
+      "jurisdiction": "IN",
+      "relatedIngredients": ["ashwagandha"],
+      "relatedProcess": [],
+      "summary": "Illustrative summary of well-known traditional uses of ashwagandha root. No verse numbers or TKDL IDs asserted.",
+      "label": "Prototype / illustrative evidence"
+    },
+    {
+      "id": "S-TK-02",
+      "title": "Illustrative traditional use note: brahmi leaf",
+      "type": "traditional_knowledge",
+      "jurisdiction": "IN",
+      "relatedIngredients": ["brahmi"],
+      "relatedProcess": [],
+      "summary": "Illustrative summary of well-known traditional uses of brahmi leaf. No verse numbers or TKDL IDs asserted.",
+      "label": "Prototype / illustrative evidence"
+    },
+    {
+      "id": "S-TK-03",
+      "title": "Illustrative classical formulation pattern: two-herb decoction",
+      "type": "traditional_knowledge",
+      "jurisdiction": "IN",
+      "relatedIngredients": ["ashwagandha", "brahmi"],
+      "relatedProcess": ["Decoction (hot-water extraction)"],
+      "summary": "Illustrative pattern of two-herb decoctions in classical practice. No textual citation asserted.",
+      "label": "Prototype / illustrative evidence"
+    },
+    {
+      "id": "S-ABS-01",
+      "title": "Illustrative biodiversity register extract: ashwagandha sourcing",
+      "type": "abs",
+      "jurisdiction": "IN",
+      "relatedIngredients": ["ashwagandha"],
+      "relatedProcess": [],
+      "summary": "Sample register-style note about documenting cultivated ashwagandha sourcing. Illustrative only; no permit numbers asserted.",
+      "label": "Prototype / illustrative evidence"
+    },
+    {
+      "id": "S-ABS-02",
+      "title": "Illustrative access-documentation workflow note",
+      "type": "abs",
+      "jurisdiction": "IN",
+      "relatedIngredients": ["brahmi"],
+      "relatedProcess": ["Cold maceration"],
+      "summary": "Sample workflow note on recording prior informed consent for wild-collected brahmi. Illustrative only.",
+      "label": "Prototype / illustrative evidence"
+    },
+    {
+      "id": "S-RG-01",
+      "title": "Illustrative labelling checklist for herbal formulations",
+      "type": "regulatory",
+      "jurisdiction": "IN",
+      "relatedIngredients": ["ashwagandha", "brahmi"],
+      "relatedProcess": [],
+      "summary": "Sample checklist covering ingredient listing and label declarations for herbal products. No act, section, or notification numbers asserted.",
+      "label": "Prototype / illustrative evidence"
+    },
+    {
+      "id": "S-RG-02",
+      "title": "Illustrative licensing-pathway note for herbal manufacture",
+      "type": "regulatory",
+      "jurisdiction": "IN",
+      "relatedIngredients": [],
+      "relatedProcess": ["Steam distillation"],
+      "summary": "Sample note outlining manufacturing licence documentation for herbal units using steam distillation. Illustrative only.",
+      "label": "Prototype / illustrative evidence"
+    }
+  ]
 }

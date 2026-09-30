@@ -1,14 +1,15 @@
 /**
- * Analyzer rubric configuration (Phase 2 — structure + labelled example).
+ * Analyzer rubric configuration (Phase 2 structure + Phase 3 prototype rules).
  *
  * Per module, the rubric maps evidence attributes to indicator levels.
  * Rules are pure, ordered, and first-match-wins, which makes evaluation
  * deterministic by construction.
  *
- * No thresholds here are validated. The single worked example below is
- * explicitly marked EXAMPLE and exists only to pin the shape of a rule.
+ * No thresholds here are validated. EXAMPLE rules and the prototype
+ * sample-matching thresholds below are illustrative only.
  */
 import type { AnalysisKind } from "@/types/analysis";
+import type { SampleEvidenceType } from "@/lib/evidence/sample-evidence";
 
 export const RUBRIC_VERSION = "0.1.0-phase2-example";
 
@@ -105,3 +106,31 @@ export function evaluateIndicator(
   }
   return { module, rubricVersion: config.version, level: "indeterminate", matchedRuleId: null };
 }
+
+// ---------------------------------------------------------------------------
+// Prototype sample-matching thresholds (illustrative only, not validated).
+// The rule-based sample matcher reads these; components must not hard-code
+// matching thresholds.
+// ---------------------------------------------------------------------------
+
+/** Which sample evidence type each analyzer module screens. */
+export const SAMPLE_TYPE_BY_MODULE: Record<AnalysisKind, SampleEvidenceType> = {
+  ip: "prior_art",
+  tk: "traditional_knowledge",
+  abs: "abs",
+  regulatory: "regulatory",
+};
+
+export interface SampleMatchThresholds {
+  /** Ingredient-coverage fraction at or above which the level is High. */
+  highCoverage: number;
+  /** Ingredient-coverage fraction at or above which the level is Medium. */
+  mediumCoverage: number;
+}
+
+export const SAMPLE_MATCH_THRESHOLDS: Record<AnalysisKind, SampleMatchThresholds> = {
+  ip: { highCoverage: 1, mediumCoverage: 0.5 },
+  tk: { highCoverage: 1, mediumCoverage: 0.5 },
+  abs: { highCoverage: 1, mediumCoverage: 0.5 },
+  regulatory: { highCoverage: 1, mediumCoverage: 0.5 },
+};
