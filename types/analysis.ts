@@ -1,12 +1,13 @@
 /**
- * Analysis domain types (Phase 1 — shapes only, no logic).
+ * Analysis domain types (Phase 1 shapes + Phase 2 grounded findings).
  */
+import type { GroundedFindingFields } from "./uncertainty";
 
 export type RiskLevel = "low" | "medium" | "high" | "critical" | "unknown";
 
 export type AnalysisKind = "ip" | "tk" | "abs" | "regulatory";
 
-export interface AnalysisFinding {
+export interface AnalysisFinding extends GroundedFindingFields {
   id: string;
   kind: AnalysisKind;
   title: string;

@@ -1,7 +1,8 @@
 /**
- * Red-team domain types (Phase 1 — shapes only, no logic).
+ * Red-team domain types (Phase 1 shapes + Phase 2 grounded findings).
  */
 import type { RiskLevel } from "./analysis";
+import type { GroundedFindingFields } from "./uncertainty";
 
 export type AttackCategory =
   | "novelty"
@@ -12,7 +13,7 @@ export type AttackCategory =
   | "regulatory_blocker"
   | "claim_overbreadth";
 
-export interface RedTeamFinding {
+export interface RedTeamFinding extends GroundedFindingFields {
   id: string;
   category: AttackCategory;
   title: string;

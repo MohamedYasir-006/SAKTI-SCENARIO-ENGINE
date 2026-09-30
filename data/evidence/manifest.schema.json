@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ip-sakti.local/schemas/corpus-manifest.json",
+  "title": "IP-SAKTI corpus manifest",
+  "description": "Registry of evidence the system may cite. Mirrors the Zod schemas in lib/evidence/manifest.ts. Starts empty; never invent entries.",
+  "type": "object",
+  "required": ["manifestVersion", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "manifestVersion": { "type": "integer", "minimum": 1 },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "sourceCategory",
+          "jurisdiction",
+          "origin",
+          "license",
+          "retrievedDate",
+          "version",
+          "contentHash",
+          "verificationStatus"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "sourceCategory": {
+            "type": "string",
+            "enum": ["patent", "traditional_knowledge", "abs_register", "regulatory", "literature"]
+          },
+          "jurisdiction": { "type": "string", "minLength": 1 },
+          "origin": { "type": "string", "minLength": 1 },
+          "license": { "type": "string", "minLength": 1 },
+          "retrievedDate": { "type": "string", "minLength": 1 },
+          "version": { "type": "integer", "minimum": 1 },
+          "contentHash": { "type": "string", "minLength": 1 },
+          "verificationStatus": { "type": "string", "enum": ["verified", "pending", "unverified"] }
+        }
+      }
+    }
+  }
+}

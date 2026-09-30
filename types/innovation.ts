@@ -68,3 +68,29 @@ export interface InnovationVersion {
   createdAt: string;
   note?: string;
 }
+
+// ---------------------------------------------------------------------------
+// Phase 2 — structured innovation model.
+//
+// Single source of truth: lib/validation/innovation-model.ts (Zod schemas).
+// These re-exports keep the canonical `types/` entrypoint while making it
+// impossible for types and schemas to drift apart.
+// ---------------------------------------------------------------------------
+
+export type {
+  JurisdictionCode,
+  PlantPart,
+  QuantityUnit,
+  TemperatureUnit,
+  DurationUnit,
+  IngredientQuantity,
+  ModeledIngredient,
+  CompositionRatio,
+  CompositionDeclaration,
+  Temperature,
+  Duration,
+  Solvent,
+  ProcessStep,
+  ProposedClaim,
+  InnovationModel,
+} from "@/lib/validation/innovation-model";

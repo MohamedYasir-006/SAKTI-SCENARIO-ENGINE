@@ -1,4 +1,4 @@
-# Data Model (Phase 1)
+# Data Model (Phase 1 + Phase 2)
 
 Canonical entities live in `types/`.
 
@@ -53,3 +53,59 @@ Scenario
 ## Report (`types/report.ts`)
 
 `Report` → ordered `ReportSection[]` with evidence references, language tag.
+
+## Phase 2 additions
+
+### Structured innovation model
+
+Source of truth: `lib/validation/innovation-model.ts` (Zod schemas;
+types derived via `z.infer`, re-exported from `types/innovation.ts`).
+Strict objects, no coercion.
+
+InnovationModel
+├── id, title
+├── ingredients (ModeledIngredient[])
+│   ├── botanicalName, synonyms (common/Sanskrit), plantPart (enum)
+│   └── quantity { amount: number, unit: QuantityUnit }
+├── composition (CompositionDeclaration)
+│   ├── total { amount, unit } — declared total
+│   └── ratios[] { ingredientId, share } — must sum to total
+├── processSteps (ProcessStep[])
+│   └── order, action, temperature { value, unit C|F|K },
+│       duration { value, unit }, solvent { name, quantityMl? }
+├── intendedUse (string[], min 1)
+├── targetJurisdictions (enum: IN | US | EP | WO, min 1)
+└── proposedClaims ({ id, text }[], min 1)
+
+Validator: `validateInnovationModel()` in
+`lib/innovation/model-validator.ts` returns `{ valid: true, value }` or
+`{ valid: false, errors: FieldError[] }` (`path`, `code`, `message`).
+Cross-field codes: `ratio_sum_mismatch`, `unknown_ingredient`,
+`duplicate_ingredient_id`, `duplicate_step_order`, `invalid_share`.
+
+### Uncertainty (`types/uncertainty.ts`)
+
+`UncertaintyState`: `insufficient_evidence | conflicting_evidence |
+not_discriminated_by_corpus | needs_professional_review`.
+Every `AnalysisFinding` and `RedTeamFinding` now carries `uncertainty`,
+`evidenceRefs[]`, plus `sourceFact` (what sources state) separate from
+`interpretation` (what the analyzer infers).
+
+### Corpus manifest
+
+- `data/evidence/manifest.json` — registry; starts empty (`{ manifestVersion: 1, items: [] }`).
+- `data/evidence/manifest.schema.json` — JSON Schema (draft 2020-12), mirrors the Zod schemas.
+- `lib/evidence/manifest.ts` — `manifestItemSchema` (id, title,
+  sourceCategory, jurisdiction, origin, license, retrievedDate, version,
+  contentHash, verificationStatus), `validateManifestData()`,
+  `loadManifestFile()`, `countManifest()`.
+- `pnpm manifest:validate` — validates and prints counts per category and jurisdiction.
+
+### Rubric (`lib/analysis/rubric.config.ts`)
+
+`RUBRIC_VERSION = "0.1.0-phase2-example"`. Per-module config maps
+`EvidenceAttributes` → `IndicatorLevel` (`high | medium | low |
+indeterminate`) via ordered, first-match-wins pure rules evaluated by
+`evaluateIndicator()` (deterministic; falls back to `indeterminate`).
+One rule is provided, explicitly marked EXAMPLE and not validated;
+TK/ABS/regulatory modules are structural placeholders.
