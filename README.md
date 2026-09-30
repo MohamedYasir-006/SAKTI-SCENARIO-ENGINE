@@ -24,9 +24,11 @@ Evidence-Grounded Innovation Intelligence for Ayurveda.
 | Corpus manifest schema + loader + validate script | ✅ Implemented | `lib/evidence/manifest.ts`, `data/evidence/manifest.json`, `scripts/validate-manifest.ts` |
 | Rubric structure + labelled example rule | ✅ Implemented | `lib/analysis/rubric.config.ts` |
 | Vitest suites (model, manifest, rubric) | ✅ Implemented | `tests/{innovation,evidence,analysis}/*.test.ts` |
-| Analyzer engines (IP/TK/ABS/regulatory) | 🔲 Designed only | `lib/analysis/*-analyzer.ts` (stubs) |
+| Analyzer engines (IP/TK/ABS/regulatory) | ✅ Prototype (rule-based sample matcher) | `lib/analysis/sample-matcher.ts` (full engines still stubs) |
 | Retrieval / RAG / AI calls | 🔲 Designed only | `lib/retrieval/*`, `lib/ai/*` (stubs) |
-| Scenario engine, red-team engine, reports | 🔲 Designed only | `lib/scenario/*`, `lib/redteam/*`, `lib/reports/*` (stubs) |
+| Scenario Lab (versions, diff, selective re-run, comparison) | ✅ Prototype | `lib/scenario/version-diff.ts`, `lib/scenario/scenario-analysis.ts`, `/scenario-lab` |
+| Red team (rule-based findings, grouped) | ✅ Prototype | `lib/redteam/sample-redteam.ts`, `/red-team` (full engine still a stub) |
+| Reports | 🔲 Designed only | `lib/reports/*` (stubs) |
 | Corpus manifest entries | 🔲 Empty by design | `data/evidence/manifest.json` (`items: []`) |
 
 ## Folder structure

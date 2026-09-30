@@ -134,3 +134,15 @@ export const SAMPLE_MATCH_THRESHOLDS: Record<AnalysisKind, SampleMatchThresholds
   abs: { highCoverage: 1, mediumCoverage: 0.5 },
   regulatory: { highCoverage: 1, mediumCoverage: 0.5 },
 };
+
+/**
+ * Prototype range-comparison rules (illustrative only, not validated).
+ * A name-matched ingredient counts toward coverage only when no
+ * ratioRange applies to it, or when its percentage falls inside the
+ * stated band. Percentages are only comparable in "percent" units.
+ */
+export const SAMPLE_RANGE_RULES = {
+  comparableUnit: "percent",
+  /** Coverage credit for a name match whose value falls outside the band. */
+  outOfRangeCoverageCredit: 0,
+} as const;

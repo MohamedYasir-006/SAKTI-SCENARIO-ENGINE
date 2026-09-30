@@ -20,6 +20,7 @@
       "relatedIngredients": ["ashwagandha", "brahmi"],
       "relatedProcess": ["Cold maceration"],
       "summary": "Sample note describing a two-herb ashwagandha and brahmi blend prepared by cold maceration. Illustrative only.",
+      "ratioRange": { "ingredient": "ashwagandha", "minPercent": 50, "maxPercent": 70 },
       "label": "Prototype / illustrative evidence"
     },
     {
@@ -30,6 +31,7 @@
       "relatedIngredients": [],
       "relatedProcess": ["Low-temperature vacuum drying"],
       "summary": "Sample note describing gentle low-temperature drying of powdered herbs. Illustrative only; no filing reference asserted.",
+      "processDetail": { "method": "Low-temperature vacuum drying", "minTempC": 30, "maxTempC": 50 },
       "label": "Prototype / illustrative evidence"
     },
     {
@@ -60,6 +62,7 @@
       "relatedIngredients": ["ashwagandha", "brahmi"],
       "relatedProcess": ["Decoction (hot-water extraction)"],
       "summary": "Illustrative pattern of two-herb decoctions in classical practice. No textual citation asserted.",
+      "ratioRange": { "ingredient": "brahmi", "minPercent": 20, "maxPercent": 40 },
       "label": "Prototype / illustrative evidence"
     },
     {
@@ -100,6 +103,7 @@
       "relatedIngredients": [],
       "relatedProcess": ["Steam distillation"],
       "summary": "Sample note outlining manufacturing licence documentation for herbal units using steam distillation. Illustrative only.",
+      "processDetail": { "method": "Steam distillation" },
       "label": "Prototype / illustrative evidence"
     }
   ]

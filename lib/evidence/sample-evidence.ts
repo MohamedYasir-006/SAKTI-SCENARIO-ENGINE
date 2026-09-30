@@ -25,6 +25,24 @@ export const sampleEvidenceSchema = z
     relatedIngredients: z.array(z.string()).default([]),
     relatedProcess: z.array(z.string()).default([]),
     summary: z.string().min(1),
+    /** Optional stated percentage band for one ingredient (illustrative). */
+    ratioRange: z
+      .object({
+        ingredient: z.string().min(1),
+        minPercent: z.number(),
+        maxPercent: z.number(),
+      })
+      .strict()
+      .optional(),
+    /** Optional stated process detail (illustrative). */
+    processDetail: z
+      .object({
+        method: z.string().min(1).optional(),
+        minTempC: z.number().optional(),
+        maxTempC: z.number().optional(),
+      })
+      .strict()
+      .optional(),
     label: z.literal(SAMPLE_EVIDENCE_LABEL),
   })
   .strict();

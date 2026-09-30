@@ -8,6 +8,7 @@ import type { SampleEvidence } from "@/lib/evidence/sample-evidence";
 import { formToModelInput, type InnovationFormData } from "@/lib/innovation/form-mapper";
 import { validateInnovationModel } from "@/lib/innovation/model-validator";
 import { runSampleAnalysis } from "@/lib/analysis/sample-matcher";
+import { saveInnovation } from "@/lib/scenario/storage";
 import type { AnalysisFinding } from "@/types/analysis";
 import type { InnovationModel } from "@/lib/validation/innovation-model";
 import type { FieldError } from "@/lib/innovation/model-validator";
@@ -33,6 +34,7 @@ export function AnalysisWorkbench({
     }
     setErrors([]);
     setModel(result.value);
+    saveInnovation(result.value);
     const analysis = runSampleAnalysis(result.value, evidence);
     setFindings(MODULE_ORDER.map((module) => analysis[module]));
   }

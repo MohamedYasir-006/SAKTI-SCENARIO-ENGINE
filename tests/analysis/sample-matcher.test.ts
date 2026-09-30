@@ -86,6 +86,42 @@ describe("analyzeModule", () => {
   });
 });
 
+describe("ratioRange checks", () => {
+  const ranged = entry({
+    id: "S-PA-09",
+    title: "Ashwagandha band note",
+    relatedIngredients: ["ashwagandha"],
+    ratioRange: { ingredient: "ashwagandha", minPercent: 90, maxPercent: 100 },
+  });
+
+  function singleIngredientModel(): InnovationModel {
+    return validModel({
+      ...MATCHING_FORM,
+      ingredients: [{ name: "Ashwagandha", percentage: 100 }],
+    });
+  }
+
+  it("counts in-range values toward coverage and records it", () => {
+    const finding = analyzeModule("ip", singleIngredientModel(), [ranged]);
+    expect(finding.risk).toBe("high");
+    expect(finding.interpretation).toContain("inside stated 90–100%");
+    expect(finding.sourceFact).toContain("Checked:");
+  });
+
+  it("withholds coverage for out-of-range values but keeps the match", () => {
+    const outOfBand = entry({
+      id: "S-PA-10",
+      title: "Narrow band note",
+      relatedIngredients: ["ashwagandha"],
+      ratioRange: { ingredient: "ashwagandha", minPercent: 10, maxPercent: 20 },
+    });
+    const finding = analyzeModule("ip", singleIngredientModel(), [outOfBand]);
+    expect(finding.evidenceIds).toEqual(["S-PA-10"]);
+    expect(finding.risk).toBe("low");
+    expect(finding.interpretation).toContain("outside stated 10–20%");
+  });
+});
+
 describe("runSampleAnalysis", () => {
   it("returns one finding per module", () => {
     const results = runSampleAnalysis(validModel(MATCHING_FORM), EVIDENCE);

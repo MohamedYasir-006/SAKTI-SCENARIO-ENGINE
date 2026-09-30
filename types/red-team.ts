@@ -11,7 +11,8 @@ export type AttackCategory =
   | "tk_conflict"
   | "abs_compliance"
   | "regulatory_blocker"
-  | "claim_overbreadth";
+  | "claim_overbreadth"
+  | "missing_evidence";
 
 export interface RedTeamFinding extends GroundedFindingFields {
   id: string;
