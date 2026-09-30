@@ -1,0 +1,18 @@
+{
+  "id": "demo-ashwabrahm",
+  "label": "Prototype / illustrative content — not verified",
+  "title": "AshwaBrahm Low-Temperature Herbal Formulation (DEMO PLACEHOLDER)",
+  "summary": "Illustrative demo innovation used to exercise the Scenario Engine UI flow. All fields are placeholders; no real formulation, process, or claim is asserted.",
+  "metadata": {
+    "title": "AshwaBrahm Low-Temperature Herbal Formulation (DEMO PLACEHOLDER)",
+    "creators": ["Demo contributor"],
+    "language": "en"
+  },
+  "ingredients": [],
+  "formulation": "TODO (Phase 2): describe illustrative formulation without asserting real-world facts.",
+  "process": [],
+  "intendedUse": [],
+  "claims": [],
+  "biologicalResources": [],
+  "jurisdictions": ["IN"]
+}

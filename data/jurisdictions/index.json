@@ -1,0 +1,9 @@
+{
+  "label": "Prototype / illustrative content — not verified",
+  "jurisdictions": [
+    { "code": "IN", "name": "India" },
+    { "code": "US", "name": "United States" },
+    { "code": "EP", "name": "European Patent Organisation" },
+    { "code": "WO", "name": "WIPO (PCT)" }
+  ]
+}
