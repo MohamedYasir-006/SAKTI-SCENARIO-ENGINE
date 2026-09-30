@@ -1,18 +1,15 @@
 {
   "id": "demo-ashwabrahm",
   "label": "Prototype / illustrative content — not verified",
-  "title": "AshwaBrahm Low-Temperature Herbal Formulation (DEMO PLACEHOLDER)",
+  "title": "AshwaBrahm Low-Temperature Herbal Formulation (illustrative demo)",
   "summary": "Illustrative demo innovation used to exercise the Scenario Engine UI flow. All fields are placeholders; no real formulation, process, or claim is asserted.",
-  "metadata": {
-    "title": "AshwaBrahm Low-Temperature Herbal Formulation (DEMO PLACEHOLDER)",
-    "creators": ["Demo contributor"],
-    "language": "en"
-  },
-  "ingredients": [],
-  "formulation": "TODO (Phase 2): describe illustrative formulation without asserting real-world facts.",
-  "process": [],
-  "intendedUse": [],
-  "claims": [],
-  "biologicalResources": [],
-  "jurisdictions": ["IN"]
+  "form": {
+    "ingredients": [
+      { "name": "Ashwagandha", "percentage": 70 },
+      { "name": "Brahmi", "percentage": 30 }
+    ],
+    "extractionMethod": "Low-temperature vacuum drying",
+    "intendedUse": "stress management",
+    "jurisdiction": "IN"
+  }
 }

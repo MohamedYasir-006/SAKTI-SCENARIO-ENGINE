@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { DemoLoaderButton } from "@/components/demo/demo-loader-button";
 
 export default function HomePage(): React.JSX.Element {
   return (
@@ -14,19 +15,14 @@ export default function HomePage(): React.JSX.Element {
         <p className="mx-auto mt-3 max-w-md text-sm text-slate-600">
           Evidence-grounded innovation intelligence for Ayurveda.
         </p>
-        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <Link href="/dashboard">
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link href="/analysis">
             <Button size="lg">Start Innovation Analysis</Button>
           </Link>
-          <Link href="/scenario-lab">
-            <Button size="lg" variant="outline">
-              Explore Demo
-            </Button>
-          </Link>
+          <DemoLoaderButton size="lg" label="Explore Demo" />
         </div>
         <p className="mt-8 text-xs text-slate-400">
-          Phase 1 — architecture only. Product intelligence arrives in later
-          phases.
+          Working prototype with illustrative sample evidence. Not legal advice.
         </p>
       </div>
     </main>

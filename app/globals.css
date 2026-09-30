@@ -52,3 +52,31 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
+
+@media print {
+  /* Printable report: chrome and controls stay on screen only. */
+  aside,
+  header,
+  nav,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+  }
+
+  .print-section {
+    break-before: page;
+    border: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

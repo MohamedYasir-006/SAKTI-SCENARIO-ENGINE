@@ -1,10 +1,13 @@
 import { PageContainer } from "@/components/layout/page-container";
 import { ScenarioLabWorkbench } from "@/components/scenario/scenario-lab-workbench";
+import { parseDemoScenarios } from "@/lib/demo/demo-loader";
 import { parseSampleEvidence } from "@/lib/evidence/sample-evidence";
 import rawEvidence from "@/data/demo/ashwabrahm/evidence.json";
+import rawScenarios from "@/data/demo/ashwabrahm/scenarios.json";
 
 export default function ScenarioLabPage(): React.JSX.Element {
   const parsed = parseSampleEvidence(rawEvidence);
+  const demo = parseDemoScenarios(rawScenarios);
   return (
     <PageContainer
       title="Scenario Lab"
@@ -22,7 +25,10 @@ export default function ScenarioLabPage(): React.JSX.Element {
           </ul>
         </div>
       ) : (
-        <ScenarioLabWorkbench evidence={parsed.items} />
+        <ScenarioLabWorkbench
+          evidence={parsed.items}
+          demoScenarios={demo.valid ? demo.spec : null}
+        />
       )}
     </PageContainer>
   );

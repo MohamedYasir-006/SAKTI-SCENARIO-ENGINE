@@ -44,10 +44,10 @@ export function emptyForm(): InnovationFormData {
  * Values are passed through as-is so the validator (not this mapper)
  * decides what is acceptable.
  */
-export function formToModelInput(form: InnovationFormData): unknown {
+export function formToModelInput(form: InnovationFormData, opts?: { title?: string }): unknown {
   return {
     id: "form-innovation",
-    title: "Form innovation (prototype)",
+    title: opts?.title ?? "Form innovation (prototype)",
     ingredients: form.ingredients.map((row, index) => ({
       id: `ing-${index + 1}`,
       botanicalName: row.name,

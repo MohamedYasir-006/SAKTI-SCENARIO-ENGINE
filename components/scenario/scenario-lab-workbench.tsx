@@ -7,6 +7,7 @@ import { ScenarioComparison } from "@/components/scenario/scenario-comparison";
 import { ScenarioEditor } from "@/components/scenario/scenario-editor";
 import type { SampleEvidence } from "@/lib/evidence/sample-evidence";
 import { validateInnovationModel, type FieldError } from "@/lib/innovation/model-validator";
+import { buildDemoVariants, type DemoScenarioSpec } from "@/lib/demo/demo-loader";
 import { runSampleAnalysis } from "@/lib/analysis/sample-matcher";
 import {
   analyzeVersion,
@@ -25,8 +26,10 @@ function clone(model: InnovationModel): InnovationModel {
 
 export function ScenarioLabWorkbench({
   evidence,
+  demoScenarios,
 }: {
   evidence: SampleEvidence[];
+  demoScenarios?: DemoScenarioSpec | null;
 }): React.JSX.Element {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
@@ -103,7 +106,6 @@ export function ScenarioLabWorkbench({
       variants: variants.map((variant) => ({ version: variant.version, model: variant.model })),
     });
   }
-
   function handleAttack(): void {
     if (analyses) {
       saveScenario({
@@ -114,6 +116,21 @@ export function ScenarioLabWorkbench({
       });
     }
     router.push("/red-team");
+  }
+
+  function handleLoadDemoScenario(): void {
+    if (!base || !demoScenarios) return;
+    const result = buildDemoVariants(base, { versionB: demoScenarios.versionB, versionC: demoScenarios.versionC });
+    if (!result.valid) {
+      setAnalyses(null);
+      setErrors(result.errors.map((message) => ({ path: "demo scenario", code: "invalid_demo", message })));
+      return;
+    }
+    setErrors([]);
+    setAnalyses(null);
+    setModelB(result.variants.versionB);
+    setModelC(result.variants.versionC);
+    setShowC(true);
   }
 
   return (
@@ -158,8 +175,13 @@ export function ScenarioLabWorkbench({
         </div>
       ) : null}
 
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3">
         <Button onClick={handleCompare}>Compare versions</Button>
+        {demoScenarios ? (
+          <Button variant="outline" onClick={handleLoadDemoScenario}>
+            Load demo scenario
+          </Button>
+        ) : null}
         <Button variant="outline" onClick={handleAttack}>
           Attack my innovation
         </Button>

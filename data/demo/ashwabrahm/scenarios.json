@@ -1,5 +1,11 @@
 {
   "label": "Prototype / illustrative content — not verified",
   "baseInnovationId": "demo-ashwabrahm",
-  "scenarios": []
+  "versionB": {
+    "percentages": { "Ashwagandha": 60, "Brahmi": 40 },
+    "extractionMethod": "Cold maceration"
+  },
+  "versionC": {
+    "jurisdiction": "WO"
+  }
 }

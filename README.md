@@ -28,7 +28,10 @@ Evidence-Grounded Innovation Intelligence for Ayurveda.
 | Retrieval / RAG / AI calls | 🔲 Designed only | `lib/retrieval/*`, `lib/ai/*` (stubs) |
 | Scenario Lab (versions, diff, selective re-run, comparison) | ✅ Prototype | `lib/scenario/version-diff.ts`, `lib/scenario/scenario-analysis.ts`, `/scenario-lab` |
 | Red team (rule-based findings, grouped) | ✅ Prototype | `lib/redteam/sample-redteam.ts`, `/red-team` (full engine still a stub) |
-| Reports | 🔲 Designed only | `lib/reports/*` (stubs) |
+| Printable report (8 sections, gaps, review points) | ✅ Prototype | `lib/reports/report-builder.ts`, `/reports` |
+| Demo loader (AshwaBrahm + B/C scenarios from JSON) | ✅ Prototype | `lib/demo/demo-loader.ts`, demo buttons on home / analysis / scenario-lab |
+| Dashboard status cards | ✅ Prototype | `components/dashboard/dashboard-panel.tsx`, `/dashboard` |
+| Reports | 🔲 Designed only | Full report generator service (`lib/reports/report-generator.ts` stub) |
 | Corpus manifest entries | 🔲 Empty by design | `data/evidence/manifest.json` (`items: []`) |
 
 ## Folder structure
